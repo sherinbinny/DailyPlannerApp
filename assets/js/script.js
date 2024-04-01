@@ -35,8 +35,8 @@ $(document).ready(function()
             }
             
             // Add save and remove button
-            var saveBtn = $("<button>").addClass("col-1 saveBtn").html("Save");
-            var removeBtn = $("<button>").addClass("col-1 removeBtn").html("Delete");
+            var saveBtn = $("<button>").addClass("col-1 saveBtn").html("<i class='fas fa-save'></i>");
+            var removeBtn = $("<button>").addClass("col-1 removeBtn").html("<i class='fas fa-trash'></i>");
             
             // Append block to container
             timeBlock.append(hourCol, textArea, saveBtn, removeBtn);
