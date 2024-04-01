@@ -46,6 +46,25 @@ $(document).ready(function()
 
 
 
+    // On clicking save task, save to local storage
+    $(".container").on("click", ".saveBtn", function()
+    {
+        var text = $(this).parent().find(".description").val();
+        var hour = $(this).parent().find(".hour").text();
+  
+        localStorage.setItem(hour, text);
+    });
+    
+
+    // On clicking remove task, remove from local storage
+    $(".container").on("click", ".removeBtn", function()
+    {
+        var hour = $(this).parent().find(".hour").text();
+  
+        localStorage.removeItem(hour);
+        $(this).parent().find(".description").val("");
+    });
+
 
 
     // Call all functions when page loads
