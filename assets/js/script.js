@@ -14,7 +14,7 @@ $(document).ready(function()
         var currentHour = dayjs().hour(); // Get the current hour
         
         // Display time from 9am-6pm
-        for(var i = 9; i <= 18; i++)
+        for(var i = 0; i <= 18; i++)
         {
             var timeBlock = $("<div>").addClass("row time-block");
             var hourCol = $("<div>").addClass("col-1 hour").text(dayjs().hour(i).format("hA"));
