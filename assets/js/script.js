@@ -67,7 +67,27 @@ $(document).ready(function()
 
 
 
+    // Function to load events from local storage
+    function loadEvents()
+    {
+        // Loop through each timeblock
+        $(".hour").each(function()
+        {
+            var hour = $(this).text();
+            var event = localStorage.getItem(hour);
+            
+            // If event is set, display it in the corresponsing time block
+            if(event)
+            {
+                $(this).parent().find(".description").val(event);
+            }
+        });
+    }
+
+
+
     // Call all functions when page loads
     showCurrentDay();
     presentTimeBlocks();
+    loadEvents();
   });
