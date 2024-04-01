@@ -12,14 +12,35 @@ $(document).ready(function()
     {
         var container = $(".container");
         var currentHour = dayjs().hour(); // Get the current hour
-  
+        
+        // Display time from 9am-6pm
         for(var i = 9; i <= 18; i++)
         {
             var timeBlock = $("<div>").addClass("row time-block");
             var hourCol = $("<div>").addClass("col-1 hour").text(dayjs().hour(i).format("hA"));
-            var textArea = $("<textarea>").addClass("col-8 description");
-    
+            var textArea = $("<textarea>").addClass("col-9 description");
             
+            // Check if time is in the past, present or future
+            if(i < currentHour)
+            {
+                textArea.addClass("past");
+            }
+            else if (i === currentHour)
+            {
+                textArea.addClass("present");
+            }
+            else
+            {
+                textArea.addClass("future");
+            }
+            
+            // Add save and remove button
+            var saveBtn = $("<button>").addClass("col-1 saveBtn").html("Save");
+            var removeBtn = $("<button>").addClass("col-1 removeBtn").html("Delete");
+            
+            // Append block to container
+            timeBlock.append(hourCol, textArea, saveBtn, removeBtn);
+            container.append(timeBlock);
         }
     }
 
